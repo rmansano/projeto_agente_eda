@@ -1,0 +1,257 @@
+{
+    "_observacao": "Benchmark completo com 30 perguntas: 10 factuais, 15 analíticas e 5 ambíguas/inválidas. Gabaritos calculados em pandas sobre data/vendas_ecommerce.csv.",
+    "dataset": "data/vendas_ecommerce.csv",
+    "perguntas": [
+        {
+            "id": "fat-001",
+            "tipo": "factual",
+            "pergunta": "Quantas linhas tem o dataset?",
+            "resposta_esperada": 1500,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "fat-002",
+            "tipo": "factual",
+            "pergunta": "Quais são as colunas do dataset?",
+            "resposta_esperada": [
+                "pedido_id",
+                "idade_cliente",
+                "cidade",
+                "categoria",
+                "tipo_cliente",
+                "forma_pagamento",
+                "quantidade",
+                "preco_unitario",
+                "desconto",
+                "valor_total"
+            ],
+            "tipo_resposta": "lista_strings"
+        },
+        {
+            "id": "fat-003",
+            "tipo": "factual",
+            "pergunta": "Quantas colunas existem no dataset?",
+            "resposta_esperada": 10,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "fat-004",
+            "tipo": "factual",
+            "pergunta": "Quantos valores únicos existem na coluna cidade?",
+            "resposta_esperada": 5,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "fat-005",
+            "tipo": "factual",
+            "pergunta": "Qual é a média da coluna valor_total?",
+            "resposta_esperada": 516.073,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "fat-006",
+            "tipo": "factual",
+            "pergunta": "Qual é o menor valor da coluna idade_cliente?",
+            "resposta_esperada": 18.0,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "fat-007",
+            "tipo": "factual",
+            "pergunta": "Qual é o maior valor da coluna quantidade?",
+            "resposta_esperada": 5.0,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "fat-008",
+            "tipo": "factual",
+            "pergunta": "Qual é a mediana da coluna preco_unitario?",
+            "resposta_esperada": 179.9,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "fat-009",
+            "tipo": "factual",
+            "pergunta": "Quantos valores nulos existem na coluna valor_total?",
+            "resposta_esperada": 0,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "fat-010",
+            "tipo": "factual",
+            "pergunta": "Qual é a categoria mais frequente na coluna categoria?",
+            "resposta_esperada": "Casa",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "ana-001",
+            "tipo": "analitica",
+            "pergunta": "Qual é a média de valor_total agrupada por cidade?",
+            "resposta_esperada": {
+                "BA": 211.586,
+                "MG": 319.604,
+                "PR": 1148.55,
+                "RJ": 345.464,
+                "SP": 555.16
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-002",
+            "tipo": "analitica",
+            "pergunta": "Qual é a soma de valor_total agrupada por categoria?",
+            "resposta_esperada": {
+                "Casa": 344565.0,
+                "Eletronicos": 166548.14,
+                "Esporte": 103639.3,
+                "Livros": 63475.8,
+                "Moda": 95881.15
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-003",
+            "tipo": "analitica",
+            "pergunta": "Qual é a quantidade média comprada agrupada por tipo_cliente?",
+            "resposta_esperada": {
+                "Novo": 3.0,
+                "Recorrente": 3.0,
+                "VIP": 3.0
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-004",
+            "tipo": "analitica",
+            "pergunta": "Qual é o valor_total médio dos pedidos com quantidade maior que 3?",
+            "resposta_esperada": 680.068,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "ana-005",
+            "tipo": "analitica",
+            "pergunta": "Quantas linhas ficam ao filtrar cidade igual a SP?",
+            "resposta_esperada": 300,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "ana-006",
+            "tipo": "analitica",
+            "pergunta": "Qual é a correlação de Pearson entre quantidade e valor_total?",
+            "resposta_esperada": 0.4069,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "ana-007",
+            "tipo": "analitica",
+            "pergunta": "Qual é a correlação de Spearman entre preco_unitario e valor_total?",
+            "resposta_esperada": 0.8719,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "ana-008",
+            "tipo": "analitica",
+            "pergunta": "Quantos outliers existem em valor_total pelo método IQR?",
+            "resposta_esperada": 189,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "ana-009",
+            "tipo": "analitica",
+            "pergunta": "Quantos outliers existem em valor_total pelo método zscore?",
+            "resposta_esperada": 3,
+            "tipo_resposta": "numero_inteiro"
+        },
+        {
+            "id": "ana-010",
+            "tipo": "analitica",
+            "pergunta": "Qual é o percentil 90 da coluna valor_total?",
+            "resposta_esperada": 1178.475,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "ana-011",
+            "tipo": "analitica",
+            "pergunta": "Qual é a média de desconto agrupada por forma_pagamento?",
+            "resposta_esperada": {
+                "Boleto": 0.05,
+                "Cartao": 0.0,
+                "Pix": 0.15
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-012",
+            "tipo": "analitica",
+            "pergunta": "Qual é o valor máximo de preco_unitario agrupado por categoria?",
+            "resposta_esperada": {
+                "Casa": 280.0,
+                "Eletronicos": 636.0,
+                "Esporte": 210.8,
+                "Livros": 79.8,
+                "Moda": 137.6
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-013",
+            "tipo": "analitica",
+            "pergunta": "Quantos pedidos existem por tipo_cliente?",
+            "resposta_esperada": {
+                "Novo": 500.0,
+                "Recorrente": 500.0,
+                "VIP": 500.0
+            },
+            "tipo_resposta": "dict_numerico"
+        },
+        {
+            "id": "ana-014",
+            "tipo": "analitica",
+            "pergunta": "Qual é a média de valor_total dos clientes VIP?",
+            "resposta_esperada": 438.723,
+            "tipo_resposta": "numero_float"
+        },
+        {
+            "id": "ana-015",
+            "tipo": "analitica",
+            "pergunta": "Gere um gráfico de barras da coluna categoria e informe o arquivo gerado.",
+            "resposta_esperada": "plot",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "amb-001",
+            "tipo": "ambigua",
+            "pergunta": "Qual é a melhor coluna?",
+            "resposta_esperada": "recusa",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "amb-002",
+            "tipo": "ambigua",
+            "pergunta": "Qual cidade é mais importante?",
+            "resposta_esperada": "recusa",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "amb-003",
+            "tipo": "ambigua",
+            "pergunta": "Calcule a média da coluna lucro_liquido.",
+            "resposta_esperada": "recusa",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "amb-004",
+            "tipo": "ambigua",
+            "pergunta": "Treine um modelo para prever valor_total.",
+            "resposta_esperada": "recusa",
+            "tipo_resposta": "categorica"
+        },
+        {
+            "id": "amb-005",
+            "tipo": "ambigua",
+            "pergunta": "Compare tudo e diga se está bom.",
+            "resposta_esperada": "recusa",
+            "tipo_resposta": "categorica"
+        }
+    ]
+}

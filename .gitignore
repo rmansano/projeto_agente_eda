@@ -1,0 +1,21 @@
+# Ambiente virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+
+# Testes
+.pytest_cache/
+
+# Segredos
+.env
+
+# Logs
+logs/*.json
+
+# Outputs
+outputs/*.png
