@@ -111,3 +111,77 @@ def tabela_contingencia(coluna_a: str, coluna_b: str, normalizar: bool = False) 
             for idx, row in tabela.iterrows()
         },
     }
+
+
+@tool(
+    description=(
+        "Retorna um valor aleatório do dataset, opcionalmente "
+        "aplicando um filtro antes do sorteio. Use quando o usuário "
+        "pedir exemplos, amostras ou valores aleatórios."
+    ),
+    parameters={
+        "type": "object",
+        "properties": {
+            "coluna": {
+                "type": "string",
+                "description": "Coluna cujo valor será retornado."
+            },
+            "coluna_filtro": {
+                "type": "string",
+                "description": "Coluna usada para filtrar os dados antes do sorteio."
+            },
+            "valor_filtro": {
+                "type": "string",
+                "description": "Valor que deve existir na coluna_filtro."
+            }
+        },
+        "required": ["coluna"]
+    }
+)
+def amostrar_valor(
+    coluna: str,
+    coluna_filtro: str | None = None,
+    valor_filtro: str | None = None,
+) -> dict:
+    """
+    Retorna um valor aleatório do dataset.
+    Pode sortear no dataset inteiro ou dentro de um subconjunto filtrado.
+    """
+    df = state.require_loaded()
+
+    if coluna not in df.columns:
+        return {
+            "erro": f"Coluna '{coluna}' não encontrada.",
+            "colunas_disponiveis": list(df.columns),
+        }
+
+    df_filtrado = df
+
+    if coluna_filtro and valor_filtro:
+        if coluna_filtro not in df.columns:
+            return {
+                "erro": f"Coluna de filtro '{coluna_filtro}' não encontrada."
+            }
+
+        df_filtrado = df[
+            df[coluna_filtro].astype(str).str.lower()
+            == str(valor_filtro).lower()
+        ]
+
+    if len(df_filtrado) == 0:
+        return {
+            "erro": "Nenhum registro encontrado para o filtro informado."
+        }
+
+    linha = df_filtrado.sample(n=1).iloc[0]
+
+    return {
+        "coluna": coluna,
+        "valor": str(linha[coluna]),
+        "indice": int(linha.name),
+        "filtro": (
+            f"{coluna_filtro}={valor_filtro}"
+            if coluna_filtro and valor_filtro
+            else "nenhum"
+        ),
+    }
