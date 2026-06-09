@@ -69,5 +69,5 @@ NUMERIC_TOLERANCE = 1e-2
 # ============================================================
 # Valores aproximados, ajustáveis conforme o modelo usado pelo grupo.
 # Estão em US$ por 1 milhão de tokens.
-INPUT_COST_PER_1M_TOKENS = float(os.getenv("INPUT_COST_PER_1M_TOKENS", "0.80"))
-OUTPUT_COST_PER_1M_TOKENS = float(os.getenv("OUTPUT_COST_PER_1M_TOKENS", "4.00"))
+INPUT_COST_PER_1M_TOKENS = float(os.getenv("INPUT_COST_PER_1M_TOKENS", "0.14"))
+OUTPUT_COST_PER_1M_TOKENS = float(os.getenv("OUTPUT_COST_PER_1M_TOKENS", "0.28"))
